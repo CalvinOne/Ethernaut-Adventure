@@ -1,6 +1,6 @@
 ### 第八关 Force
 ### 难度3/5
-## 这一关的通关条件是合约的余额大于零。
+## 这一关的通关条件是使合约的余额大于零。
 ## 代码如下：
 ```Solidity
 // SPDX-License-Identifier: MIT
