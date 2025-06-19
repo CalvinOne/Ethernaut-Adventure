@@ -27,8 +27,8 @@ contract Vault {
 1. 以太坊合约的状态变量按照声明顺序分配到存储槽（从存储槽0开始）。
 2. 每个存储槽可以容纳32字节，也就是256位数据。
 ## 解题步骤：
-1. 
-2.打开remix，新建攻击合约：
+1. 在console中输入await web3.eth.getStorageAt("0x578546AB0b765818E84ac03aaBa9eA942a9480B5”,1)
+2. 打开remix，新建攻击合约：
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
