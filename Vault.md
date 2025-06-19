@@ -22,3 +22,4 @@ contract Vault {
     }
 }
 ```
+区块链的一个特点就是数据公开透明。合约将password存储在一个private的变量里，是可以在链上看到这个存储的值。之后调用unlock函数送入password就可以解锁了。
