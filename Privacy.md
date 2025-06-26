@@ -43,7 +43,7 @@ contract Privacy {
 - slot 5 : data[2]
 可以看到我们需要的_key就存放在slot5中。
 ## 解题步骤：
-1. 打开console，获取_key值:
+1. 打开console，获取到_key值:
 ```Javascript
 await web3.eth.getStorageAt(levelinstance,5);
 ```
